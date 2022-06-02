@@ -135,15 +135,3 @@ EMAIL_HOST_PASSWORD =config('EMAIL_PASS') #os.environ.get('EMAIL_PASS')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-
-
-AUTHENTICATION_BACKENDS = (
- 'django.contrib.auth.backends.ModelBackend',
- 'allauth.account.auth_backends.AuthenticationBackend',
- )
-
-
-
-SITE_ID= 14
-
-LOGIN_REDIRECT_URL= '/'
