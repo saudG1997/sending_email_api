@@ -10,4 +10,6 @@ router.register('sendemail', views.UserModelViewSet, basename='user')
 
 urlpatterns = [
     path('', include(router.urls)),
+    path('accept/', views.Accept, name='accept'),
+    path('reject/', views.Reject, name='accept'),
 ]
