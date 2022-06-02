@@ -1,6 +1,13 @@
+from django.db import router
 from email_api import views
-from email_api.views import SendEmailView
-from django.urls import path
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+
+#creating router object
+router = DefaultRouter()
+#register class_name_"UserViewSet" with router
+router.register('sendemail', views.UserModelViewSet, basename='user')
+
 urlpatterns = [
-    path('sendemail/', SendEmailView.as_view(), name='email'),
+    path('', include(router.urls)),
 ]
