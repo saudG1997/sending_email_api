@@ -1,16 +1,10 @@
+from pyexpat import model
 from django.db import models
 
 # Create your models here.
-class Consult(models.Model):
-    name = models.CharField(max_length=16)
-    position = models.CharField(max_length=16, null=True)
-    group = models.CharField(max_length=50)
-    email = models.CharField(max_length=50, null=True)
-    phone = models.CharField(max_length=14)
-    describe = models.TextField(blank=True, null=True)
-    file = models.FileField(blank=True, null=True)
-    create_date = models.DateTimeField(auto_now_add=True)
-    update_date = models.DateTimeField(auto_now=True)
+class User(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.EmailField(max_length=255, unique=True)
 
-    class Meta:
-        db_table = 'Consult'
+    def __str__(self):
+        return self.email
