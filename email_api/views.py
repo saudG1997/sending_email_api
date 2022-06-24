@@ -5,7 +5,6 @@ from django.http import HttpResponse
 from django.core.mail import send_mail
 from django.conf import settings
 
-
 class UserModelViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
@@ -24,8 +23,6 @@ def Accept(request):
 def Reject(request):
     subject = "Greetings from Finnove Tech."
     msg = "Thank you for your interest in the Graphic Designer position at Khojdeu.com in Kathmandu, Bāgmatī, Nepal. Unfortunately, we will not be moving forward with your application, but we appreciate your time and interest in Khojdeu.com. Regards:Khojdeu.com "
-    
-
     to = "restapi94@gmail.com"
     res = send_mail(subject, msg, settings.EMAIL_HOST_USER, [to])
     if(res == 1):
